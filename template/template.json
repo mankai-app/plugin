@@ -1,0 +1,119 @@
+{
+  "id": "template",
+  "name": "Template Plugin",
+  "version": "1.0.0",
+  "authors": [
+    "ME"
+  ],
+  "description": "A template plugin.",
+  "repository": "https://example.com",
+  "updatesUrl": "https://example.com/updates",
+  "getImageHeaders": {
+    "User-Agent": "TemplatePlugin/1.0"
+  },
+  "availableGenres": [
+    "action",
+    "romance",
+    "yuri",
+    "boysLove",
+    "schoolLife",
+    "adventure",
+    "harem",
+    "speculativeFiction",
+    "otokonoko",
+    "war",
+    "suspense",
+    "fanFiction",
+    "comedy",
+    "magic",
+    "horror",
+    "historical",
+    "sports",
+    "mature",
+    "mecha"
+  ],
+  "configs": [
+    {
+      "key": "text_config",
+      "name": "Text Config",
+      "description": "A simple text configuration option.",
+      "type": "text",
+      "defaultValue": "Default Text"
+    },
+    {
+      "key": "password_config",
+      "name": "Password Config",
+      "description": "A simple password configuration option.",
+      "type": "password",
+      "defaultValue": "DefaultPassword"
+    },
+    {
+      "key": "number_config",
+      "name": "Number Config",
+      "description": "A simple number configuration option.",
+      "type": "number",
+      "defaultValue": 42
+    },
+    {
+      "key": "boolean_config",
+      "name": "Boolean Config",
+      "description": "A simple boolean configuration option.",
+      "type": "boolean",
+      "defaultValue": true
+    },
+    {
+      "key": "select_config",
+      "name": "Select Config",
+      "description": "A simple select configuration option.",
+      "type": "select",
+      "defaultValue": "option1",
+      "options": [
+        "option1",
+        "option2",
+        "option3"
+      ]
+    },
+    {
+      "key": "slider_config",
+      "name": "Slider Config",
+      "description": "A simple slider configuration option.",
+      "type": "slider",
+      "defaultValue": 50,
+      "min": 0,
+      "max": 100,
+      "step": 10
+    }
+  ],
+  "cooldown": {
+    "default": 1000,
+    "getImage": 500,
+    "getImageConcurrency": 10
+  },
+  "capabilities": [
+    "onlineCheck",
+    "suggestions",
+    "list",
+    "listByGenre",
+    "listByStatus",
+    "search",
+    "searchByGenre",
+    "searchByStatus",
+    "searchByAuthor",
+    "mangaDetails",
+    "batchMangas",
+    "mangaUpdates",
+    "chapter",
+    "image"
+  ],
+  "scripts": {
+    "isOnline": "async function n(){console.log(\"Checking if the plugin source is online\")}var e=n;export{e as default};\n",
+    "getSuggestion": "async function g(e){console.log(`Retrieving suggestions for query: ${e}`)}var n=g;export{n as default};\n",
+    "search": "async function i(t,a,e=\"all\",o=0,r=!1){console.log(`Searching for manga by ${r?\"author\":\"title\"} with query: ${t} on page: ${a}, genre: ${e}, status: ${o}`)}var l=i;export{l as default};\n",
+    "getList": "async function o(t,a=\"all\",e=0){console.log(`Retrieving manga list for page ${t}, genre: ${a}, status: ${e}`)}var g=o;export{g as default};\n",
+    "getMangas": "async function a(n){console.log(`Retrieving mangas for IDs: ${n.join(\", \")}`)}var o=a;export{o as default};\n",
+    "getMangaUpdates": "async function e(a){console.log(`Checking updates for ${a.length} mangas`)}var t=e;export{t as default};\n",
+    "getDetailedManga": "async function e(a){console.log(`Retrieving detailed information for manga with ID: ${a}`)}var i=e;export{i as default};\n",
+    "getChapter": "async function a(e,t){console.log(`Retrieving chapter ${t.id} for manga ${e.title}`)}var r=a;export{r as default};\n",
+    "getImage": "async function r(e){console.log(`Retrieving image from URL: ${e}`)}var g=r;export{g as default};\n"
+  }
+}
