@@ -1,0 +1,102 @@
+{
+  "id": "template",
+  "name": "Template Plugin",
+  "version": "1.0.0",
+  "authors": ["ME"],
+  "description": "A template plugin.",
+  "repository": "https://example.com",
+  "updatesUrl": "https://example.com/updates",
+  "getImageHeaders": {
+    "User-Agent": "TemplatePlugin/1.0"
+  },
+  "availableGenres": [
+    "action",
+    "romance",
+    "yuri",
+    "boysLove",
+    "schoolLife",
+    "adventure",
+    "harem",
+    "speculativeFiction",
+    "otokonoko",
+    "war",
+    "suspense",
+    "fanFiction",
+    "comedy",
+    "magic",
+    "horror",
+    "historical",
+    "sports",
+    "mature",
+    "mecha"
+  ],
+  "configs": [
+    {
+      "key": "text_config",
+      "name": "Text Config",
+      "description": "A simple text configuration option.",
+      "type": "text",
+      "defaultValue": "Default Text"
+    },
+    {
+      "key": "password_config",
+      "name": "Password Config",
+      "description": "A simple password configuration option.",
+      "type": "password",
+      "defaultValue": "DefaultPassword"
+    },
+    {
+      "key": "number_config",
+      "name": "Number Config",
+      "description": "A simple number configuration option.",
+      "type": "number",
+      "defaultValue": 42
+    },
+    {
+      "key": "boolean_config",
+      "name": "Boolean Config",
+      "description": "A simple boolean configuration option.",
+      "type": "boolean",
+      "defaultValue": true
+    },
+    {
+      "key": "select_config",
+      "name": "Select Config",
+      "description": "A simple select configuration option.",
+      "type": "select",
+      "defaultValue": "option1",
+      "options": ["option1", "option2", "option3"]
+    },
+    {
+      "key": "slider_config",
+      "name": "Slider Config",
+      "description": "A simple slider configuration option.",
+      "type": "slider",
+      "defaultValue": 50,
+      "min": 0,
+      "max": 100,
+      "step": 10
+    }
+  ],
+  "cooldown": {
+    "default": 1000,
+    "getImage": 500,
+    "getImageConcurrency": 10
+  },
+  "capabilities": [
+    "onlineCheck",
+    "suggestions",
+    "list",
+    "listByGenre",
+    "listByStatus",
+    "search",
+    "searchByGenre",
+    "searchByStatus",
+    "searchByAuthor",
+    "mangaDetails",
+    "batchMangas",
+    "mangaUpdates",
+    "chapter",
+    "image"
+  ]
+}
