@@ -1,4 +1,5 @@
 import {
+  copyFileSync,
   existsSync,
   mkdirSync,
   readdirSync,
@@ -6,7 +7,7 @@ import {
   rmSync,
   writeFileSync,
 } from "node:fs";
-import { basename, join } from "node:path";
+import { basename, extname, join } from "node:path";
 import { build } from "esbuild";
 
 const srcDir = "./src";
@@ -23,11 +24,14 @@ const builtPlugins: {
   version: string;
   description: string;
   path: string;
+  readmePath?: string;
 }[] = [];
 
 for (const dirEntry of readdirSync(srcDir, { withFileTypes: true })) {
   if (!dirEntry.isDirectory() || dirEntry.name === "utils") continue;
   const folder = `${srcDir}/${dirEntry.name}`;
+  const outFolder = `${distDir}/${dirEntry.name}`;
+  mkdirSync(outFolder, { recursive: true });
   const entryPoints = [
     "isOnline.ts",
     "getSuggestion.ts",
@@ -42,10 +46,6 @@ for (const dirEntry of readdirSync(srcDir, { withFileTypes: true })) {
     .map((f) => `${folder}/${f}`)
     .filter(existsSync);
   for (const entryPoint of entryPoints) {
-    // Create output folder for this group if it doesn't exist
-    const outFolder = `${distDir}/${dirEntry.name}`;
-    mkdirSync(outFolder, { recursive: true });
-
     await build({
       entryPoints: [entryPoint],
       outdir: outFolder,
@@ -62,7 +62,17 @@ for (const dirEntry of readdirSync(srcDir, { withFileTypes: true })) {
   const meta = JSON.parse(readFileSync(metaPath, "utf8"));
   const id = meta.id;
 
-  const outFolder = `${distDir}/${dirEntry.name}`;
+  const markdownFiles = readdirSync(folder, { withFileTypes: true }).filter(
+    (file) => file.isFile() && extname(file.name).toLowerCase() === ".md",
+  );
+  for (const file of markdownFiles) {
+    copyFileSync(join(folder, file.name), join(outFolder, file.name));
+    console.log(`✅ ${file.name} copied to ${outFolder}`);
+  }
+  const readme = markdownFiles.find(
+    (file) => file.name.toLowerCase() === "readme.md",
+  );
+
   const scripts: Record<string, string> = {};
   for (const entryPoint of entryPoints) {
     const key = basename(entryPoint, ".ts");
@@ -93,6 +103,7 @@ for (const dirEntry of readdirSync(srcDir, { withFileTypes: true })) {
     version: meta.version ?? "0.0.0",
     description: meta.description ?? "",
     path: `${dirEntry.name}/${id}.json`,
+    readmePath: readme ? `${dirEntry.name}/${readme.name}` : undefined,
   });
 }
 
@@ -105,6 +116,10 @@ if (repo && branch) {
     readmeContent += `### ${plugin.name} v${plugin.version}\n`;
     if (plugin.description) {
       readmeContent += `${plugin.description}\n\n`;
+    }
+    if (plugin.readmePath) {
+      const readmeUrl = `https://github.com/${repo}/blob/${branch}/${plugin.readmePath}`;
+      readmeContent += `[Documentation](${readmeUrl})\n\n`;
     }
     readmeContent += `\`\`\`\n${url}\n\`\`\`\n\n`;
   }
