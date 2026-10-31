@@ -30,6 +30,7 @@
     "mature",
     "mecha"
   ],
+  "availableCustomGenres": ["Isekai", "Slice of Life"],
   "configs": [
     {
       "key": "text_config",
@@ -88,9 +89,11 @@
     "suggestions",
     "list",
     "listByGenre",
+    "listByCustomGenre",
     "listByStatus",
     "search",
     "searchByGenre",
+    "searchByCustomGenre",
     "searchByStatus",
     "searchByAuthor",
     "mangaDetails",
