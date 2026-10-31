@@ -32,6 +32,10 @@
     "mature",
     "mecha"
   ],
+  "availableCustomGenres": [
+    "Isekai",
+    "Slice of Life"
+  ],
   "configs": [
     {
       "key": "text_config",
@@ -94,9 +98,11 @@
     "suggestions",
     "list",
     "listByGenre",
+    "listByCustomGenre",
     "listByStatus",
     "search",
     "searchByGenre",
+    "searchByCustomGenre",
     "searchByStatus",
     "searchByAuthor",
     "mangaDetails",
@@ -108,8 +114,8 @@
   "scripts": {
     "isOnline": "async function n(){console.log(\"Checking if the plugin source is online\")}var e=n;export{e as default};\n",
     "getSuggestion": "async function g(e){console.log(`Retrieving suggestions for query: ${e}`)}var n=g;export{n as default};\n",
-    "search": "async function i(t,a,e=\"all\",o=0,r=!1){console.log(`Searching for manga by ${r?\"author\":\"title\"} with query: ${t} on page: ${a}, genre: ${e}, status: ${o}`)}var l=i;export{l as default};\n",
-    "getList": "async function o(t,a=\"all\",e=0){console.log(`Retrieving manga list for page ${t}, genre: ${a}, status: ${e}`)}var g=o;export{g as default};\n",
+    "search": "async function i(t,a,e=\"all\",o=0,r=!1,n=null){console.log(`Searching for manga by ${r?\"author\":\"title\"} with query: ${t} on page: ${a}, genre: ${e}, status: ${o}, custom genre: ${n}`)}var u=i;export{u as default};\n",
+    "getList": "async function r(t,a=\"all\",e=0,o=null){console.log(`Retrieving manga list for page ${t}, genre: ${a}, status: ${e}, custom genre: ${o}`)}var l=r;export{l as default};\n",
     "getMangas": "async function a(n){console.log(`Retrieving mangas for IDs: ${n.join(\", \")}`)}var o=a;export{o as default};\n",
     "getMangaUpdates": "async function e(a){console.log(`Checking updates for ${a.length} mangas`)}var t=e;export{t as default};\n",
     "getDetailedManga": "async function e(a){console.log(`Retrieving detailed information for manga with ID: ${a}`)}var i=e;export{i as default};\n",
