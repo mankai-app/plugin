@@ -4,6 +4,20 @@
   "version": "1.0.0",
   "authors": ["ME"],
   "description": "A template plugin.",
+  "localizations": {
+    "zh-Hans": {
+      "name": "模板插件",
+      "description": "用于创建 Mankai 插件的模板。"
+    },
+    "zh-Hant": {
+      "name": "範本外掛",
+      "description": "用於建立 Mankai 外掛的範本。"
+    },
+    "ja": {
+      "name": "テンプレートプラグイン",
+      "description": "Mankai プラグインを作成するためのテンプレート。"
+    }
+  },
   "repository": "https://example.com",
   "updatesUrl": "https://example.com/updates",
   "getImageHeaders": {
