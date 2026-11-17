@@ -1,4 +1,4 @@
-import { Chapter, DetailedManga } from "../utils/models.ts";
+import type { Chapter, DetailedManga } from "../utils/models.ts";
 
 async function getChapter(
   manga: DetailedManga,

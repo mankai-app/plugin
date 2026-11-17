@@ -11,7 +11,20 @@
     },
     "zh-Hant": {
       "name": "範本外掛",
-      "description": "用於建立 Mankai 外掛的範本。"
+      "description": "用於建立 Mankai 外掛的範本。",
+      "availableCustomGenres": ["異世界", "日常"],
+      "availableCustomSorts": ["依標題排序"],
+      "configs": {
+        "select_config": {
+          "name": "選擇設定",
+          "description": "從清單中選擇一個選項。",
+          "options": {
+            "option1": "選項一",
+            "option2": "選項二",
+            "option3": "選項三"
+          }
+        }
+      }
     },
     "ja": {
       "name": "テンプレートプラグイン",
@@ -45,6 +58,7 @@
     "mecha"
   ],
   "availableCustomGenres": ["Isekai", "Slice of Life"],
+  "availableCustomSorts": ["Title"],
   "configs": [
     {
       "key": "text_config",
@@ -91,6 +105,14 @@
       "min": 0,
       "max": 100,
       "step": 10
+    },
+    {
+      "key": "color_config",
+      "name": "Color Config",
+      "description": "A color with adjustable opacity.",
+      "type": "color",
+      "defaultValue": "#F2E4C9FF",
+      "supportsOpacity": true
     }
   ],
   "cooldown": {
@@ -105,11 +127,17 @@
     "listByGenre",
     "listByCustomGenre",
     "listByStatus",
+    "listByUpdateTime",
+    "listByPopularity",
+    "listByCustomSort",
     "search",
     "searchByGenre",
     "searchByCustomGenre",
     "searchByStatus",
     "searchByAuthor",
+    "searchByUpdateTime",
+    "searchByPopularity",
+    "searchByCustomSort",
     "mangaDetails",
     "batchMangas",
     "mangaUpdates",

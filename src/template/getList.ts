@@ -1,14 +1,16 @@
-import { Genre, Manga, Status } from "../utils/models.ts";
+import type { GenreFilter, Manga, SortBy, StatusFilter } from "../utils/models.ts";
 
 async function getList(
   page: number,
-  genre: Genre = Genre.All,
-  status: Status = Status.Any,
+  genre: GenreFilter | null = null,
+  status: StatusFilter | null = null,
   customGenre: string | null = null,
+  sortBy: SortBy | null = null,
+  customSort: string | null = null,
 ): Promise<Manga[]> {
-  // TODO: Implement the logic to retrieve a list of manga, including custom genre filtering
+  // TODO: Apply the selected filters and sort order when retrieving the list.
   console.log(
-    `Retrieving manga list for page ${page}, genre: ${genre}, status: ${status}, custom genre: ${customGenre}`,
+    `Retrieving manga list for page ${page}, genre: ${genre}, status: ${status}, custom genre: ${customGenre}, sort by: ${sortBy}, custom sort: ${customSort}`,
   );
 }
 

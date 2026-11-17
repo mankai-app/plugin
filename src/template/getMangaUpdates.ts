@@ -1,4 +1,4 @@
-import { MangaUpdate, MangaUpdateRequest } from "../utils/models.ts";
+import type { MangaUpdate, MangaUpdateRequest } from "../utils/models.ts";
 
 async function getMangaUpdates(
   mangas: MangaUpdateRequest[],

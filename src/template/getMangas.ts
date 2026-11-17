@@ -1,4 +1,4 @@
-import { Manga } from "../utils/models.ts";
+import type { Manga } from "../utils/models.ts";
 
 async function getMangas(mangaIds: string[]): Promise<Manga[]> {
   // TODO: Implement the logic to retrieve a list of mangas
