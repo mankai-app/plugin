@@ -13,7 +13,25 @@
     },
     "zh-Hant": {
       "name": "範本外掛",
-      "description": "用於建立 Mankai 外掛的範本。"
+      "description": "用於建立 Mankai 外掛的範本。",
+      "availableCustomGenres": [
+        "異世界",
+        "日常"
+      ],
+      "availableCustomSorts": [
+        "依標題排序"
+      ],
+      "configs": {
+        "select_config": {
+          "name": "選擇設定",
+          "description": "從清單中選擇一個選項。",
+          "options": {
+            "option1": "選項一",
+            "option2": "選項二",
+            "option3": "選項三"
+          }
+        }
+      }
     },
     "ja": {
       "name": "テンプレートプラグイン",
@@ -49,6 +67,9 @@
   "availableCustomGenres": [
     "Isekai",
     "Slice of Life"
+  ],
+  "availableCustomSorts": [
+    "Title"
   ],
   "configs": [
     {
@@ -100,6 +121,14 @@
       "min": 0,
       "max": 100,
       "step": 10
+    },
+    {
+      "key": "color_config",
+      "name": "Color Config",
+      "description": "A color with adjustable opacity.",
+      "type": "color",
+      "defaultValue": "#F2E4C9FF",
+      "supportsOpacity": true
     }
   ],
   "cooldown": {
@@ -114,11 +143,17 @@
     "listByGenre",
     "listByCustomGenre",
     "listByStatus",
+    "listByUpdateTime",
+    "listByPopularity",
+    "listByCustomSort",
     "search",
     "searchByGenre",
     "searchByCustomGenre",
     "searchByStatus",
     "searchByAuthor",
+    "searchByUpdateTime",
+    "searchByPopularity",
+    "searchByCustomSort",
     "mangaDetails",
     "batchMangas",
     "mangaUpdates",
@@ -128,12 +163,12 @@
   "scripts": {
     "isOnline": "async function n(){console.log(\"Checking if the plugin source is online\")}var e=n;export{e as default};\n",
     "getSuggestion": "async function g(e){console.log(`Retrieving suggestions for query: ${e}`)}var n=g;export{n as default};\n",
-    "search": "async function r(a,t,e=\"all\",i=0,o=!1,n=null){console.log(`Searching for manga by ${o?\"author\":\"title\"} with query: ${a} on page: ${t}, genre: ${e}, status: ${i}, custom genre: ${n}`)}var u=r;export{u as default};\n",
-    "getList": "async function o(a,t=\"all\",i=0,e=null){console.log(`Retrieving manga list for page ${a}, genre: ${t}, status: ${i}, custom genre: ${e}`)}var g=o;export{g as default};\n",
-    "getMangas": "async function a(n){console.log(`Retrieving mangas for IDs: ${n.join(\", \")}`)}var o=a;export{o as default};\n",
+    "search": "async function a(l,t,n=null,e=null,r=!1,u=null,o=null,s=null){console.log(`Searching for manga by ${r?\"author\":\"title\"} with query: ${l} on page: ${t}, genre: ${n}, status: ${e}, custom genre: ${u}, sort by: ${o}, custom sort: ${s}`)}var i=a;export{i as default};\n",
+    "getList": "async function s(l,t=null,n=null,e=null,r=null,u=null){console.log(`Retrieving manga list for page ${l}, genre: ${t}, status: ${n}, custom genre: ${e}, sort by: ${r}, custom sort: ${u}`)}var o=s;export{o as default};\n",
+    "getMangas": "async function o(n){console.log(`Retrieving mangas for IDs: ${n.join(\", \")}`)}var a=o;export{a as default};\n",
     "getMangaUpdates": "async function e(a){console.log(`Checking updates for ${a.length} mangas`)}var t=e;export{t as default};\n",
-    "getDetailedManga": "async function e(a){console.log(`Retrieving detailed information for manga with ID: ${a}`)}var i=e;export{i as default};\n",
-    "getChapter": "async function a(e,t){console.log(`Retrieving chapter ${t.id} for manga ${e.title}`)}var r=a;export{r as default};\n",
+    "getDetailedManga": "async function t(e){console.log(`Retrieving detailed information for manga with ID: ${e}`)}var a=t;export{a as default};\n",
+    "getChapter": "async function a(e,t){console.log(`Retrieving chapter ${t.id} for manga ${e.title}`)}var i=a;export{i as default};\n",
     "getImage": "async function r(e){console.log(`Retrieving image from URL: ${e}`)}var g=r;export{g as default};\n"
   }
 }

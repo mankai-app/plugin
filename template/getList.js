@@ -1,1 +1,1 @@
-async function o(a,t="all",i=0,e=null){console.log(`Retrieving manga list for page ${a}, genre: ${t}, status: ${i}, custom genre: ${e}`)}var g=o;export{g as default};
+async function s(l,t=null,n=null,e=null,r=null,u=null){console.log(`Retrieving manga list for page ${l}, genre: ${t}, status: ${n}, custom genre: ${e}, sort by: ${r}, custom sort: ${u}`)}var o=s;export{o as default};
